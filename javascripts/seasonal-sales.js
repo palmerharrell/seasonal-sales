@@ -14,3 +14,38 @@
 // categories.json. You should load both file via XHRs and store the contents in two 
 // different JavaScript variables in your code.
 
+// Configure XHR for products.json
+var products = new XMLHttpRequest();
+products.addEventListener("load", productsLoad);
+products.addEventListener("error", productsFail);
+products.open("GET", "json/products.json");
+products.send();
+
+// Configure XHR for categories.json
+var categories = new XMLHttpRequest();
+categories.addEventListener("load", categoriesLoad);
+categories.addEventListener("error", categoriesFail);
+categories.open("GET", "json/categories.json");
+categories.send();
+
+function productsFail() {
+	console.log("Something went wrong while loading products.json");
+}
+
+function categoriesFail() {
+	console.log("Something went wrong while loading categories.json");
+}
+
+function productsLoad() {
+	var productsData = JSON.parse(this.responseText);
+	console.log("productsData: ",productsData);	// TEST
+}
+
+function categoriesLoad() {
+	var categoriesData = JSON.parse(this.responseText);
+	console.log("categoriesData: ",categoriesData);	// TEST
+}
+
+
+
+
