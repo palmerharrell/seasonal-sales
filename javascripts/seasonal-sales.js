@@ -37,13 +37,17 @@ function categoriesFail() {
 }
 
 function productsLoad() {
-	var productsData = JSON.parse(this.responseText);
-	console.log("productsData: ",productsData);	// TEST
+	if(products.status === 200) {
+		var productsData = JSON.parse(this.responseText);
+		console.log("productsData: ",productsData);	// TEST
+	}
 }
 
 function categoriesLoad() {
-	var categoriesData = JSON.parse(this.responseText);
-	console.log("categoriesData: ",categoriesData);	// TEST
+	if(categories.status === 200) {
+		var categoriesData = JSON.parse(this.responseText);
+		console.log("categoriesData: ",categoriesData);	// TEST
+	}
 }
 
 
