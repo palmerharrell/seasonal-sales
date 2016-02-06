@@ -8,6 +8,10 @@ h1 {
 	margin-top: 0;
 }
 
+label {
+	font-size: 0.8em;
+}
+
 select {
 	margin-bottom: 40px;
 }
