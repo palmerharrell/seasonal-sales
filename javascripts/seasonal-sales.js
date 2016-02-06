@@ -17,7 +17,7 @@ var productsEl = document.getElementById("products");
 var productsArray = [];
 var categoriesArray = [];
 
-var filesLoaded = 0;
+var filesLoaded = false;
 
 // Configure XHR for products.json
 var products = new XMLHttpRequest();
@@ -62,22 +62,19 @@ function categoriesLoad() {
 }
 
 // How do you look up an object in an array by the value of a particular key?
-// Why is this running twice?
+
 function listProducts() {
-	console.log(productsArray[0].name); // TEST
-	console.log(productsArray[0].category_id); // TEST
-	console.log(productsArray[0].price); // TEST
-	console.log(categoriesArray[0].id); // TEST
-	console.log("TESTING TESTING TESTING"); // TEST
-	console.log("Why is this running twice???"); // TEST
+	// Once both JSON files have been parsed, list products on page
+	if (filesLoaded) {
+		console.log(productsArray[0].name); // TEST
+		console.log(productsArray[0].category_id); // TEST
+		console.log(productsArray[0].price); // TEST
+		console.log(categoriesArray[0].id); // TEST
+	} else {
+		filesLoaded = true;
+	}
 }
 
-// Once both JSON files have been parsed, list products on page
-if (filesLoaded === 2) {
-	listProducts();
-} else {
-	filesLoaded++;
-};
 
 
 
