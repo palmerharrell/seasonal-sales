@@ -61,15 +61,20 @@ function categoriesLoad() {
 	}
 }
 
-// How do you look up an object in an array by the value of a particular key?
-
 function listProducts() {
 	// Once both JSON files have been parsed, list products on page
 	if (filesLoaded) {
-		console.log(productsArray[0].name); // TEST
-		console.log(productsArray[0].category_id); // TEST
-		console.log(productsArray[0].price); // TEST
-		console.log(categoriesArray[0].id); // TEST
+
+		console.log("Name: ", productsArray[0].name); // TEST
+		
+		// Look up object by property value
+		var category = categoriesArray.filter(function(obj) {
+  		return obj.id == productsArray[0].category_id;
+		});
+
+		console.log("Category: ", category[0].name); // TEST
+		console.log("Price: ", productsArray[0].price); // TEST
+	
 	} else {
 		filesLoaded = true;
 	}
