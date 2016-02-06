@@ -65,10 +65,6 @@ function listProducts() {
 	// Once both JSON files have been parsed, list products on page
 	if (filesLoaded) {
 		var productHTML = "";
-		// console.log("Name: ", productsArray[0].name); // TEST
-		
-
-
 		for (var i = 0; i < productsArray.length; i++) {
 			
 			// Look up object by property value
@@ -76,16 +72,14 @@ function listProducts() {
 	  		return obj.id == productsArray[i].category_id;
 			});
 
+			// Construct HTML string for each product
 			productHTML += `<div class="product"><p class="name">${productsArray[i].name}`;
 			productHTML += `</p>`;
 			productHTML += `<p class="dept">${category[0].name}</p>`;
 			productHTML += `<p class="price">${productsArray[i].price}</p></div>`;
 
 		};
-		productsEl.innerHTML += productHTML;
-		// console.log("Category: ", category[0].name); // TEST
-		// console.log("Price: ", productsArray[0].price); // TEST
-	
+		productsEl.innerHTML += productHTML;	
 	} else {
 		filesLoaded = true;
 	}
