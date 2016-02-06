@@ -1,0 +1,23 @@
+body {
+	font-family: Futura, 'Trebuchet MS', Arial, sans-serif;
+	padding: 3%;
+}
+
+h1 {
+	margin-top: 0;
+}
+
+.product {
+	float: left;
+	margin-right: 50px;
+	padding-top: 30px;
+}
+
+.name {
+	margin-bottom: 0;
+}
+
+.dept {
+	margin-top: 0;
+	font-size: 0.8em;
+}

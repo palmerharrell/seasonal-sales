@@ -10,9 +10,9 @@
 // For example, when Spring is chosen, all products in the corresponding Household category 
 // should have their prices updated with a 15% discount off the base price.
 
-// The two JSON representations above should be in two files: products.json, and 
-// categories.json. You should load both file via XHRs and store the contents in two 
-// different JavaScript variables in your code.
+
+var seasonChooser = document.getElementById("seasonChooser");
+var productsEl = document.getElementById("products");
 
 // Configure XHR for products.json
 var products = new XMLHttpRequest();
