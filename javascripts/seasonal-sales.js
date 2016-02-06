@@ -14,6 +14,11 @@
 var seasonChooser = document.getElementById("seasonChooser");
 var productsEl = document.getElementById("products");
 
+var productsArray = [];
+var categoriesArray = [];
+
+var filesLoaded = 0;
+
 // Configure XHR for products.json
 var products = new XMLHttpRequest();
 products.addEventListener("load", productsLoad);
@@ -39,17 +44,40 @@ function categoriesFail() {
 function productsLoad() {
 	if(products.status === 200) {
 		var productsData = JSON.parse(this.responseText);
-		console.log("productsData: ",productsData);	// TEST
+		productsArray = productsData.products;
+		listProducts();
+	} else {
+		console.log("Error: ", products.status);
 	}
 }
 
 function categoriesLoad() {
 	if(categories.status === 200) {
 		var categoriesData = JSON.parse(this.responseText);
-		console.log("categoriesData: ",categoriesData);	// TEST
+		categoriesArray = categoriesData.categories;
+		listProducts();
+	} else {
+		console.log("Error: ", categories.status);
 	}
 }
 
+// How do you look up an object in an array by the value of a particular key?
+// Why is this running twice?
+function listProducts() {
+	console.log(productsArray[0].name); // TEST
+	console.log(productsArray[0].category_id); // TEST
+	console.log(productsArray[0].price); // TEST
+	console.log(categoriesArray[0].id); // TEST
+	console.log("TESTING TESTING TESTING"); // TEST
+	console.log("Why is this running twice???"); // TEST
+}
+
+// Once both JSON files have been parsed, list products on page
+if (filesLoaded === 2) {
+	listProducts();
+} else {
+	filesLoaded++;
+};
 
 
 
